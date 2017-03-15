@@ -1,5 +1,5 @@
 var canvas, ctx, mousePos;
-
+var start = null;
 
 // Autres joueurs
 var allPlayers = {};
@@ -7,6 +7,9 @@ var allPlayers = {};
 function init() {
   console.log("init");
   canvas = document.querySelector("#myCanvas");
+  var canvasContainer = document.querySelector("#canvasContainer");
+  canvas.height = canvasContainer.offsetHeight;
+  canvas.width = canvasContainer.offsetWidth-30; // 30 is for padding
   ctx = canvas.getContext('2d');
   
   // Les écouteurs
@@ -14,24 +17,22 @@ function init() {
   canvas.addEventListener("mousemove", traiteMouseMove);
   
   anime();
-
 }
-
 
 function traiteMouseDown(evt) {
   console.log("mousedown");
 }
 
 function traiteMouseMove(evt) {
-  console.log("mousemove");
+  // console.log("mousemove");
   
   mousePos = getMousePos(canvas, evt);
-  //console.log(mousePos.x + " " + mousePos.y); 
+  // console.log(mousePos.x + " " + mousePos.y); 
   
   allPlayers[username].x = mousePos.x;
   allPlayers[username].y = mousePos.y; 
 
-  console.log("On envoie sendPos");
+  // console.log("On envoie sendPos");
   var pos = {'user':username, 'pos':mousePos}
   socket.emit('sendpos', pos);
 }
@@ -74,7 +75,7 @@ function anime() {
     // 2 On dessine des objets
     drawAllPlayers();
   }
-      // 4 On rappelle la fonction d'animation à 60 im/s
-
+  
+  // 4 On rappelle la fonction d'animation à 60 im/s
   requestAnimationFrame(anime);
 }
