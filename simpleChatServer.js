@@ -5,15 +5,14 @@ var express=require('express');
 var app = express(), http = require('http'), server = http.createServer(app), io = require('socket.io').listen(server);
 
 // launch the http server on given port
-// server.listen(8082);
+server.listen(8082);
 
 // Indicate where static files are located. Without this, no external js file, no css...  
-app.use(express.static(__dirname + '/'));    
-
+app.use(express.static(__dirname + '/')); 
 
 // routing
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/simpleChat.html');
+  res.sendFile(__dirname + '/simpleChat.html');
 });
 
 // usernames which are currently connected to the chat
