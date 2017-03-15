@@ -1,15 +1,11 @@
-
 // We need to use the express framework: have a real web servler that knows how to send mime types etc.
 var express=require('express');
 
 // Init globals variables for each module required
-var app = express()
-  , http = require('http')
-  , server = http.createServer(app)
-  , io = require('socket.io').listen(server);
+var app = express(), http = require('http'), server = http.createServer(app), io = require('socket.io').listen(server);
 
 // launch the http server on given port
-server.listen(8082);
+// server.listen(8082);
 
 // Indicate where static files are located. Without this, no external js file, no css...  
 app.use(express.static(__dirname + '/'));    
@@ -69,7 +65,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('disconnect', function(){
 		// remove the username from global usernames list
 		delete usernames[socket.username];
-				// update list of users in chat, client-side
+		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 
 		// Remove the player too
