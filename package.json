@@ -10,14 +10,8 @@
     "start": "node simpleChatServer.js"
   },
   "dependencies": {
-    "cool-ascii-faces": "1.3.4",
-    "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "socket.io": "1.7.2"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
   "license": "MIT"
 }
