@@ -2,34 +2,43 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body onload="init();">
 	<div class="container">
+
+		<div class="blog-header">
+			<h1 class="blog-title">Smash Bros Melee</h1>
+			<p class="lead blog-description">Version simplifié &amp; multijoueur de smash bros melee</p>
+		</div>
 		<div class="row">
-			<div class="col-md-6" id="canvasContainer">
-				<canvas width=300 height=300 id="myCanvas"></canvas>
+			<div class="col-md-8 blog-main" id="canvasContainer">
+				<canvas width=0 height=0 id="myCanvas"></canvas>
 			</div>
-			<div class="col-md-6">
+			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+				<div class="sidebar-module sidebar-module-inset">
+					<h4>Utilisateurs</h4>
+					<div id="users"></div>
+				</div>
 				<div class="row">
-					<div class="col-md-4">
-						<div style="border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
-							<b>USERS</b>
-							<div id="users"></div>
-						</div>
-					</div>
-					<div class="col-md-8">
-						<div style="height:250px;overflow:scroll-y;padding:10px;">
-							<div id="conversation"></div>
-							<input id="data"/>
-							<input type="button" id="datasend" value="send" />
-						</div>
+					<div id="sideChat" style="overflow:scroll-y;padding:10px;">
+						<div id="conversation"></div>
+						<input id="data"/>
+						<input type="button" id="datasend" value="send" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- <footer class="blog-footer">
+		<p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+		<p>
+			<a href="#">Back to top</a>
+		</p>
+	</footer> -->
 	<script src="jeu.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="viewLogic.js"></script>

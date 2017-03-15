@@ -1,6 +1,5 @@
 // We need to use the express framework: have a real web servler that knows how to send mime types etc.
 var express=require('express');
-var bootsrap = require('bootstrap');
 
 // Init globals variables for each module required
 var app = express(), http = require('http'), server = http.createServer(app), io = require('socket.io').listen(server);

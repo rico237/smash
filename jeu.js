@@ -8,8 +8,11 @@ function init() {
   console.log("init");
   canvas = document.querySelector("#myCanvas");
   var canvasContainer = document.querySelector("#canvasContainer");
-  canvas.height = canvasContainer.offsetHeight;
+  var sideBarDiv = document.querySelector('#sideChat');
   canvas.width = canvasContainer.offsetWidth-30; // 30 is for padding
+  canvas.height = canvas.width/1.2;
+  console.log(sideBarDiv);
+  sideBarDiv.style.height = canvas.height-79-15+"px";
   ctx = canvas.getContext('2d');
   
   // Les écouteurs
