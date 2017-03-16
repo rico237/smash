@@ -1,25 +1,30 @@
 var canvas, ctx, mousePos;
 var start = null;
-
 // Autres joueurs
 var allPlayers = {};
 
 function init() {
-  console.log("init");
+  // Definition des varibales
+  initCanvas();
+  // Ajout des ecouteurs
+  ajoutDesListeners();
+  // Debut de l'animation
+  anime();
+}
+
+function ajoutDesListeners(){
+  canvas.addEventListener("mousedown", traiteMouseDown);
+  canvas.addEventListener("mousemove", traiteMouseMove);
+}
+
+function initCanvas(){
   canvas = document.querySelector("#myCanvas");
   var canvasContainer = document.querySelector("#canvasContainer");
   var sideBarDiv = document.querySelector('#sideChat');
   canvas.width = canvasContainer.offsetWidth-30; // 30 is for padding
   canvas.height = canvas.width/1.2;
-  console.log(sideBarDiv);
   sideBarDiv.style.height = canvas.height-79-15+"px";
   ctx = canvas.getContext('2d');
-  
-  // Les écouteurs
-  canvas.addEventListener("mousedown", traiteMouseDown);
-  canvas.addEventListener("mousemove", traiteMouseMove);
-  
-  anime();
 }
 
 function traiteMouseDown(evt) {
