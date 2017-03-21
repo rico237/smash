@@ -1,5 +1,3 @@
-
-
 var GamePadHandler = function(){
   var buttonStatusDiv, analogicValueProgressBar, directionDiv, gamepad;
   var crossStates = buttonStates = {};

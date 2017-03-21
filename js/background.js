@@ -8,18 +8,14 @@ class Background{
 		this.images = {};
 	}	
 	animate(canvas, ctx){
-		// Pan background
+		// Scroll vertical
 		this.y += this.speed;
 		this.images["bg"] = new Image();
 	  	this.images["bg"].src = "images/bg.png";
 		ctx.drawImage(this.images["bg"], this.x, this.y, this.canvasWidth, this.canvasHeight);
-		
-		// Draw another image at the top edge of the first image
 		ctx.drawImage(this.images["bg"], this.x, this.y-this.canvasHeight, this.canvasWidth, this.canvasHeight);
-
-		// If the image scrolled off the screen, reset
+		// Si l'image est sortie
 		if (this.y >= this.canvasHeight)
 			this.y = 0;
-		// this.render(canvas, ctx);
 	}
 }
