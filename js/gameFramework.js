@@ -16,6 +16,7 @@ var GF = function(){
     gameRunning: 1,
     gameOver: 2
   };
+  var background;
 
   var currentGameState = gameStates.gameRunning;
   var currentLevel = 1;
@@ -76,6 +77,8 @@ var GF = function(){
     ajoutDesListeners();
   };
   var initElements = function(){
+    background = new Background(canvas);
+
     var plateformeWidth = 140; var plateformeHeight = 25;
     plateformePrincipale = new PlateformePrincipale(canvas.width, canvas.height, 487, 188);
     plateformeSecondaireGauche = new PlateformeSecondaire(170, 370, plateformeWidth, plateformeHeight, "gauche");
@@ -182,6 +185,7 @@ var GF = function(){
       case gameStates.gameRunning:
       // Gestion de la manette
       gamePadHandler.padLoop();
+      background.animate(canvas, ctx);
       // Anime les elements
       plateformePrincipale.animate(ctx, canvas);
       for (var j = 0; j < petitePlateformes.length; j++) {

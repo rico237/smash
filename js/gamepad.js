@@ -160,15 +160,6 @@ var GamePadHandler = function(){
       inputStates.down=false;
     } 
 
-    // compute the angle. gamepad.axes[1] is the 
-    // sin of the angle (values between [-1, 1]),
-    // gamepad.axes[0] is the cos of the angle
-    // we display the value in degree as in a regular
-    // trigonometric circle, with the x axis to the right
-    // and the y axis that goes up
-    // The angle = arcTan(sin/cos); We inverse the sign of
-    // the sin in order to have the angle in standard
-    // x and y axis (y going up)
     inputStates.angle = Math.atan2(-gamepad.axes[1], gamepad.axes[0]);
   };
 

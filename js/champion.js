@@ -61,12 +61,12 @@ class Champion{
 		var x = this.x; var y = this.y;var images = this.images; var width = this.width; var height = this.height;
 		context.save(); 
 		// context.drawImage(images["leftArm"], x + 40, y - 42);
-		context.fillText("J-"+this.numJoueur, x, y-10);
 		if (this.numJoueur===1) {
 			context.fillStyle="#FF0000";
 		}else if(this.numJoueur===2){
-			context.fillStyle="#003399";
+			context.fillStyle="#55C863";
 		}
+		context.fillText("J-"+this.numJoueur, x, y-10);
 		context.fillRect(x, y, width, height);
 		// context.restore();
 		// click de souris

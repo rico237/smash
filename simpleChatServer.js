@@ -51,11 +51,6 @@ io.sockets.on('connection', function (socket) {
 		// tell all clients to update the list of users on the GUI
 		io.sockets.emit('updateusers', usernames);
 
-		// Create a new player and store his position too... for that
-		// we have an object that is a "list of players" in that form
-		// listOfPlayer = {'michel':{'x':0, 'y':0, 'v':0}, 
-		// 							john:{'x':10, 'y':10, 'v':0}}
-		// for this example we have x, y and v for speed... ?
 		var player = {'x':0, 'y':0, 'v':0}
 		listOfPlayers[username] = player;
 		io.sockets.emit('updatePlayers',listOfPlayers);
