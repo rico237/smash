@@ -1,5 +1,5 @@
-	// var username = prompt("What's your name?");
-	var username = "Rico";
+	var username = prompt("What's your name?");
+	// var username = "Rico";
 	var conversation, data, datasend, users;
 
 	var socket = io.connect();
@@ -8,6 +8,7 @@
 	socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', username);
+		// socket.emit('adduser', prompt("What's your name?"));  
 	});
 
 	// listener, whenever the server emits 'updatechat', this updates the chat body 
@@ -33,7 +34,7 @@
 	// update the whole list of players, useful when a player
 	// connects or disconnects, we must update the whole list
 	socket.on('updatePlayers', function(listOfplayers) {
-		updatePlayers(listOfplayers);
+		// updatePlayers(listOfplayers);
 	});
 
 	// on load of page

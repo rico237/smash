@@ -1,24 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<meta charset="UTF-8">
+	<title>Smash Bros Melee</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="init();">
-	<div class="container">
-
+	<div class="container-fluid">
+		<!-- <button onclick="start()">Play the game</button> -->
+		<!-- <button onclick="pause()">Pause</button> -->
 		<div class="blog-header">
-			<h1 class="blog-title">Smash Bros Melee</h1>
-			<p class="lead blog-description">Version simplifié &amp; multijoueur de smash bros melee</p>
+			<div class="row">
+				<div class="col-md-8">
+					<h1 class="blog-description">Smash Bros Melee</h1>
+					<p class="lead blog-description">Version simplifié &amp; multijoueur de smash bros melee</p>
+					<div class="row hidden-xs hidden-sm debugGamepad">
+						<div class="col-md-6">
+							<h3>Left joystick</h3>
+							Left/Right: <progress class="axe" id="leftRight1" value=1 max=2></progress><br>
+							Up/Down: <progress class="axe" id="right1" value=1 max=2></progress><p>
+						</div>
+						<div class="col-md-6">
+							<h3>Right joystick</h3>
+							Left/Right: <progress class="axe" id="left2" value=1 max=2></progress><br>
+							Up/Down: <progress class="axe" id="right2" value=1 max=2></progress><br>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 hidden-xs hidden-sm debugGamepad">
+					<p class="lead blog-description" id="fps-count"></p>
+					Direction: <span id="direction"></span><br>
+					<div id="buttonStatus">Boutton appuyé : </div>
+					<progress id="buttonValue" value=0 min=0 max=1></progress>
+					
+				</div>
+			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-8 blog-main" id="canvasContainer">
-				<canvas width=0 height=0 id="myCanvas"></canvas>
+			<div class="col-md-9 blog-main" id="canvasContainer">
+				<canvas width=300 height=300 id="myCanvas"></canvas>
 			</div>
-			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+			<div class="col-md-3 blog-sidebar hidden-xs hidden-sm">
 				<div class="sidebar-module sidebar-module-inset">
 					<h4>Utilisateurs</h4>
 					<div id="users"></div>
@@ -33,15 +58,23 @@
 			</div>
 		</div>
 	</div>
-	<!-- <footer class="blog-footer">
-		<p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-		<p>
-			<a href="#">Back to top</a>
-		</p>
-	</footer> -->
-	<!-- <script src="gameFramework.js" ></script> -->
-	<script src="jeu.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"></script>
+	<script>
+		function init(){
+			// Lancement du jeu
+			var game = new GF();
+			game.init();
+			game.start();
+		}
+	</script>
+	<script src="js/helper.js"></script>
+	<script src="js/gamepad.js"></script>
+	<script src="js/projectile.js"></script>
+	<script src="js/plateforme.js"></script>
+	<script src="js/champion.js"></script>
+	<script src="js/gameFramework.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="viewLogic.js"></script>
+
 </body>
 </html>
