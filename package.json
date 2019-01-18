@@ -10,7 +10,7 @@
     "start": "node simpleChatServer.js"
   },
   "dependencies": {
-    "express": "4.13.3",
+    "express": "^4.16.4",
     "socket.io": "1.7.2"
   },
   "license": "MIT"
